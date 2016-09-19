@@ -20,7 +20,7 @@ Each docker image is installed with the following components:
 
       Add ```--cap-add=SYS_ADMIN``` for the use of Chrome.
 
-      Change the default user within a container to your own with: ```--user $(id -u)``` 
+      Change the default user within a container to your own with: ```--user $(id -u)```
 
   Build image from scratch:
 
@@ -43,6 +43,22 @@ Each docker image is installed with the following components:
   => connect via __VNC viewer `localhost:5902`__, default password: `vncpassword`
 
   => connect via __noVNC HTML5 client__: [http://localhost:6902/vnc_auto.html?password=vncpassword]()
+
+* __Centos7 with `icewm` UI session:__
+
+  Run command with mapping to local port `5911`:
+
+      docker run -d -p 5901:5901 -p 6901:6901 consol/centos-icewm-vnc
+
+     Change the default user within a container to your own with: ```--user $(id -u)```
+
+  Build image from scratch:
+
+      docker build -t consol/centos-icewm-vnc icewm/
+
+  => connect via __VNC viewer `localhost:5901`__, default password: `vncpassword`
+
+  => connect via __noVNC HTML5 client__: [http://localhost:6901/vnc_auto.html?password=vncpassword]()
 
 ### Hints
 #### override the VNC password
