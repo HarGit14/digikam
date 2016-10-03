@@ -50,6 +50,8 @@ yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-
 ### yum -y install icedtea-web
 ### Install vlc smplayer ffmpeg HandBrake-gui und cli
 yum -y install vlc smplayer ffmpeg HandBrake-{gui,cli}
+### Decoder und Codecs
+yum -y install libdvdcss gstreamer{,1}-plugins-ugly gstreamer-plugins-bad-nonfree gstreamer1-plugins-bad-freeworld
 ### End NEW ---------------------------------------------
 # xvnc server ports, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
