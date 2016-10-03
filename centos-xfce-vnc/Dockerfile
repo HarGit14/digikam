@@ -39,6 +39,18 @@ RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x
 # creat symbolic link for firefox java plugin
 RUN ln -s /usr/java/default/lib/amd64/libnpjp2.so /usr/lib64/mozilla/plugins/
 
+### NEW ------------------------------------------------
+### Install nux-dextop paketsource
+yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+### Install Adobe-Paketsource
+yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm
+### Install Flash-Plugin for Firefox
+yum -y install flash-plugin
+### Install Java Plug-In for Firefox
+yum -y install icedtea-web
+### Install vlc smplayer ffmpeg HandBrake-gui und cli
+yum -y install vlc smplayer ffmpeg HandBrake-{gui,cli}
+### End NEW ---------------------------------------------
 # xvnc server porst, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
 # novnc web port
