@@ -45,7 +45,7 @@ yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-releas
 ### Install Adobe-Paketsource
 yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm
 ### Install Flash-Plugin for Firefox
-### yum -y install flash-plugin
+yum -y install flash-plugin
 ### Install Java Plug-In for Firefox
 ### yum -y install icedtea-web
 ### Install vlc smplayer ffmpeg HandBrake-gui und cli
