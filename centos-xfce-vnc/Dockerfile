@@ -41,6 +41,7 @@ RUN ln -s /usr/java/default/lib/amd64/libnpjp2.so /usr/lib64/mozilla/plugins/
 
 ### NEW ------------------------------------------------
 ### Ist das hier richtig?
+### Vermutlich
 ### Install nux-dextop paketsource
 yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 ### Install Adobe-Paketsource
