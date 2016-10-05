@@ -43,17 +43,17 @@ RUN ln -s /usr/java/default/lib/amd64/libnpjp2.so /usr/lib64/mozilla/plugins/
 ### Ist das hier richtig?
 ### Vermutlich
 ### Install nux-dextop paketsource
-yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+RUN yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 ### Install Adobe-Paketsource
-yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm
+RUN yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm
 ### Install Flash-Plugin for Firefox
-yum -y install flash-plugin
+RUN yum -y install flash-plugin
 ### Install Java Plug-In for Firefox
 ### yum -y install icedtea-web
 ### Install vlc smplayer ffmpeg HandBrake-gui und cli
-yum -y install vlc smplayer ffmpeg HandBrake-{gui,cli}
+RUN yum -y install vlc smplayer ffmpeg HandBrake-{gui,cli}
 ### Decoder und Codecs
-yum -y install libdvdcss gstreamer{,1}-plugins-ugly gstreamer-plugins-bad-nonfree gstreamer1-plugins-bad-freeworld
+RUN yum -y install libdvdcss gstreamer{,1}-plugins-ugly gstreamer-plugins-bad-nonfree gstreamer1-plugins-bad-freeworld
 ### End NEW ---------------------------------------------
 # xvnc server ports, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
