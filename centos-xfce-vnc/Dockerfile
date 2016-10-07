@@ -39,10 +39,6 @@ RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x
 # create symbolic link for firefox java plugin
 RUN ln -s /usr/java/default/lib/amd64/libnpjp2.so /usr/lib64/mozilla/plugins/
 
-# Install digikam
-RUN yum -y install digikam
-RUN yum -y install kipi-plugins
-
 # xvnc server ports, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
 # novnc web port
@@ -54,6 +50,10 @@ ADD Desktop /root/Desktop
 ADD scripts /root/scripts
 RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc /root/Desktop/*.desktop
 RUN /bin/dbus-uuidgen > /etc/machine-id
+
+# Install digikam
+RUN yum -y install digikam
+RUN yum -y install kipi-plugins
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
 CMD ["--tail-log"]
