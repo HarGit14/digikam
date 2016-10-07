@@ -2,16 +2,16 @@
 
 FROM centos:7
 
-MAINTAINER Tobias Schneck "tobias.schneck@consol.de"
-ENV REFRESHED_AT 2016-07-16
+MAINTAINER Harald Graf based on Tobias Schnecks Dockerfile "tobias.schneck@consol.de"
+ENV REFRESHED_AT 2016-10-7
 
 ENV JAVA_VERSION 8u92
 
 ENV DISPLAY :1
 ENV NO_VNC_HOME /root/noVNC
 ENV VNC_COL_DEPTH 24
-ENV VNC_RESOLUTION 1280x1024
-ENV VNC_PW vncpassword
+ENV VNC_RESOLUTION 1366x768
+ENV VNC_PW vncpasswd
 
 ENV SAKULI_DOWNLOAD_URL https://labs.consol.de/sakuli/install
 
@@ -39,6 +39,10 @@ RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x
 # create symbolic link for firefox java plugin
 RUN ln -s /usr/java/default/lib/amd64/libnpjp2.so /usr/lib64/mozilla/plugins/
 
+# Install digikam
+RUN yum -y install digikam
+RUN yum -y install kipi-plugins
+
 # xvnc server ports, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
 # novnc web port
@@ -50,10 +54,6 @@ ADD Desktop /root/Desktop
 ADD scripts /root/scripts
 RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc /root/Desktop/*.desktop
 RUN /bin/dbus-uuidgen > /etc/machine-id
-
-# Install digikam
-RUN yum -y install digikam
-RUN yum -y install kipi-plugins
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
 CMD ["--tail-log"]
